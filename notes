@@ -1,0 +1,18 @@
+-- TODO --
+
+Save map as some kind of json file, allowing for layers, etc.
+Encode NPC positions as well
+	e.g. quest givers, shopkeepers, guards, special mobs etc..
+
+Special points
+	Waypoints for NPCs to follow
+	Spawn locations
+	Quest objectives
+	etc
+
+Special areas - Rectangular (or other) shapes that define where
+	Mobs spawn
+	Where minerals or other resources may spawn
+	etc
+
+

@@ -1,6 +1,4 @@
 import * as Phaser from 'phaser';
-import Player from '../../models/Player';
-import MyPlayer from '../../models/MyPlayer';
 
 class MainScene extends Phaser.Scene {
     constructor(test) {
@@ -24,7 +22,7 @@ class MainScene extends Phaser.Scene {
     // todo: clean this all up
 
     preload() {
-
+        /*
         this.load.image(
             "tiles",
             "../assets/tilesets/tiles-extruded-name.png"
@@ -34,10 +32,11 @@ class MainScene extends Phaser.Scene {
             "map",
             "../assets/tilemaps/tilemapname.json"
         );
-
-
+        */
+        /*
         this.load.spritesheet('warrior', 'assets/sprites/warrior_test.png',
             { frameWidth: 32, frameHeight: 32 });
+        */
         /*
         this.load.scenePlugin('animatedTiles', AnimatedTiles, 'animatedTiles', 'animatedTiles');
         */
@@ -83,22 +82,20 @@ class MainScene extends Phaser.Scene {
      */
     //);
       
-      this.mainSprite = this.add.sprite(1, 1, 'warrior');
+     // this.mainSprite = this.add.sprite(1, 1, 'warrior');
       
-      var newPlayer = new Player(this);
-      this.myPlayer = new MyPlayer(newPlayer);
+      //var newPlayer = new Player(this);
+     // this.myPlayer = new MyPlayer(newPlayer);
 
       console.log("created mainScene");
-    }
-
-    addNewPlayer() {
-        
     }
 
     update(time, delta) {
         //console.log("delta: " + delta);
 
         delta /= 1000;
+
+        /*
 
         if(window.keysDown[window.keyBindings.moveUp]) {
             this.myPlayer.player.sprite.y -= 100 *delta;
@@ -132,6 +129,8 @@ class MainScene extends Phaser.Scene {
 
         // todo - make a more manual camera follow solution, however for now, this is fine
         this.cameras.main.startFollow(this.myPlayer.player.sprite);
+
+        */
     }
 }
 

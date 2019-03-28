@@ -1,0 +1,9 @@
+.TilePalette {
+	position: absolute;
+	top: 100px;
+	left: 200px;
+	width: 50px;
+	height: 200px;
+	background-color: #f9f9f9;
+  	overflow-x: auto;
+}

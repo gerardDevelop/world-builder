@@ -12,25 +12,6 @@ import MainScene from './Phaser/Scenes/MainScene';
 //import NetworkClient from './Networking/NetworkClient';
 //import CharacterManager from './managers/CharacterManager';
 
-window.main = new Phaser.Game(
-  {
-    type: Phaser.WEBGL,
-    pixelArt: true,
-    //roundPixels: true,
-    parent: 'phaser-content',
-    width: window.innerWidth,
-    height: window.innerHeight,
-    physics: {
-        default: 'arcade'
-    },
-    scene: [
-        MainScene
-    ]
-});
-
-// window.networkClient = new NetworkClient();
-// window.charManager = new CharacterManager();
-
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 const rootElement = document.getElementById('root');
 
@@ -38,15 +19,12 @@ ReactDOM.render(
   <BrowserRouter basename={baseUrl}>
     <App />
   </BrowserRouter>,
-  rootElement);
-
-/*
-ReactDOM.render(
-  <App />
-);
-*/
+rootElement);
 
 registerServiceWorker();
+
+// window.networkClient = new NetworkClient();
+// window.charManager = new CharacterManager();
 
 var keyBindings = {
   moveUp: 87,
@@ -59,6 +37,7 @@ window.keyBindings = keyBindings;
 var keysDown = {};
 window.keysDown = keysDown;
 
+/*
 const handleKeyDown = e => {
   console.log("on key down");
   
@@ -70,13 +49,34 @@ const handleKeyUp = e => {
 
   keysDown[e.which] = false;
 };
+*/
 
-document.addEventListener('keydown', handleKeyDown);
-document.addEventListener('keyup', handleKeyUp);
-/*
+//document.addEventListener('keydown', handleKeyDown);
+//document.addEventListener('keyup', handleKeyUp);
+
+var config = {
+    type: Phaser.WEBGL,
+    pixelArt: true,
+    //roundPixels: true,
+    parent: 'phaser-content',
+    width: window.innerWidth,
+    height: window.innerHeight,
+    physics: {
+        default: 'arcade'
+    },
+    scene: [
+        MainScene
+    ]
+};
+
+const main = new Phaser.Game(config);
+
+window.main = main;
+
+document.addEventListener('contextmenu', event => event.preventDefault());
+
 window.addEventListener('resize', () => {
   console.log("calling resize");
-  //dwmain.resize(window.innerWidth, window.innerHeight);
-  window.mainScene.resize(window.innerWidth, window.innerHeight);
+  main.resize(window.innerWidth, window.innerHeight);
+  main.scene.keys["MainScene"].resize(window.innerWidth, window.innerHeight);
 });
-*/

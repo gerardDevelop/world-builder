@@ -1,26 +1,50 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Layout } from './components/Layout';
-import { Home } from './components/Home';
-import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
-import { CustomRoute } from './components/CustomRoute';
 import './App.css';
+import Navigation from './components/Navigation';
+import TilePalette from './components/TilePalette';
 
 export default class App extends Component {
   static displayName = App.name;
 
   /*
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data' component={FetchData} />
-        <Route path='/custom-route' component={CustomRoute} />
+    <Route exact path='/' component={Home} />
+    <Route path='/counter' component={Counter} />
+    <Route path='/fetch-data' component={FetchData} />
+    <Route path='/custom-route' component={CustomRoute} />  
   */
 
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
+
   render () {
-    return (
-      <div className="App" style={{ cursor: 'url(assets/crosshair1.cur), auto' }} >
-      </div>
-    );
+    
+    //const crossHairCursor = 'url(assets/crosshair1.cur), auto';
+
+    /*const toReturn = (<div className="App" style={{ cursor: 'url(assets/crosshair1.cur), auto' }} >
+      </div>);*/
+
+    const toReturn = (<div className="App">
+
+      
+      <Navigation />
+      <TilePalette className="TilePalette"  />
+
+
+    </div>);  
+    
+    return toReturn;
+    
   }
 }
